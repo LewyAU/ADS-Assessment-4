@@ -1,0 +1,6 @@
+﻿  FunctionProtos.cpp
+C:\Users\lewya\Desktop\University\Algo & Data Structures\ADS Assessment 4\ADS103_Lewis_Matthew_Assessment_4\FunctionProtos.cpp(324,18): warning C4553: '==': result of expression not used; did you intend '='?
+C:\Users\lewya\Desktop\University\Algo & Data Structures\ADS Assessment 4\ADS103_Lewis_Matthew_Assessment_4\FunctionProtos.cpp(328,18): warning C4553: '==': result of expression not used; did you intend '='?
+C:\Users\lewya\Desktop\University\Algo & Data Structures\ADS Assessment 4\ADS103_Lewis_Matthew_Assessment_4\FunctionProtos.cpp(335,9): error C2065: 'best': undeclared identifier
+  main.cpp
+  Generating Code...
