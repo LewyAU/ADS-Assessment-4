@@ -1,7 +1,7 @@
 #include "FunctionProtos.h"
 
-const int i= 3;
-const int j= 3;
+const int rows= 3;
+const int colums= 3;
 char board[3][3] = {
 
 {'1','2','3'}, // important to nto have to many spaces between letters or else they wont show
@@ -102,7 +102,7 @@ int askPlayersToMove(int playerOne,int playerTwo)
 	else if (playerTwo == 9)
 		board[2][2] = 'O';
 
-	return 'X' || 'O';
+	return 0;
 }
  
 void boardDisplay()
@@ -195,12 +195,12 @@ int humanVai()
 {
 	// initialize and declare  players
 	bool playerOne = false;
-	bool AI = false;
-	bool playerHasQuit2 = false;
+	bool AI1 = false;
+	bool playerHasQuit3 = false;
 
-	if (playerHasQuit2 == 1) // player quitting game
+	if (playerHasQuit3== 1) // player quitting game
 	{
-		playerHasQuit();
+		playerHasQuit2();
 	}
 
 	// display board
@@ -210,7 +210,7 @@ int humanVai()
 
 
 		// allow players to enter on the board
-		askPlayersToMove(playerOne, AI);
+		askPlayersToMove1(playerOne);
 
 		// Display board after user selection
 		system("cls"); // clear board so it dosent redisplay all the time
@@ -225,7 +225,7 @@ int humanVai()
 		//minimax function, evaluates check for win function and moves available
 		minimaxAI();
 
-	} while (!playerOne || !AI || !playerHasQuit2);
+	} while (!playerOne || !AI1 || !playerHasQuit3);
 	//--------------------------------- end of loop 
 
 	if (playerOne == true) // meesage to player if they've won
@@ -233,7 +233,7 @@ int humanVai()
 		cout << "player X won the game, press any button to return to menu" << endl;
 		_getch();
 	}
-	else if (AI == true)
+	else if (AI1 == true)
 	{
 		cout << "AI has won the game, press any button to return to menu" << endl;
 		_getch(); // wait till player presses a key to exit
@@ -320,7 +320,7 @@ int minimaxAI(int depth, int AI, bool maxMove) // returns value
 				{
 					board[i][j] = AI;
 
-					best = max(best, minimaxAI(AI, depth + 1, !maxMove));
+					best = max(best, minimaxAI(AI, depth + 1, !maxMove)); // call maximiser
 
 					board[i][j] ='_';
 				}
@@ -369,6 +369,33 @@ int playerHasQuit2()
 	} while (!gameOverLegLoss2);
 
 	return gameOverLegLoss2;
+}
+
+int askPlayersToMove1(int playerOne)
+{
+	cout << "enter your X somewhere on the board ";
+	cin >> playerOne;
+
+	if (playerOne == 1)
+		board[0][0] = 'X';
+	else if (playerOne == 2)
+		board[0][1] = 'X';
+	else if (playerOne == 3)
+		board[0][2] = 'X';
+	else if (playerOne == 4)
+		board[1][0] = 'X';
+	else if (playerOne == 5)
+		board[1][1] = 'X';
+	else if (playerOne == 6)
+		board[1][2] = 'X';
+	else if (playerOne == 7)
+		board[2][0] = 'X';
+	else if (playerOne == 8)
+		board[2][1] = 'X';
+	else if (playerOne == 9)
+		board[2][2] = 'X';
+
+	return 0;
 }
 
 // -------- End of human v AI functions ------------
