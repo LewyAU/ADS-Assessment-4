@@ -25,10 +25,10 @@ int playerHasQuit();
 
 // human v AI gamemode functions
 int humanVai();
-int checkForWinAI(); 
+bool checkForWinAI(); 
 // int BestMoveForAI(char board); //  evaluates all the available moves using minimax() and then returns the best move the maximizer can make.
 bool MovesAvailableAI(); // used HVA references in this function
-int minimaxAI(int depth, int AI, bool maxMove); // used HVA references in this function
+int minimaxAI(char board[3][3]); // used HVA references in this function
 int playerHasQuit2();
 int askPlayersToMove1(int playerOne);
 

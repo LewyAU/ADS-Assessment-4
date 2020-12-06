@@ -1,7 +1,7 @@
 #include "FunctionProtos.h"
 
-const int rows= 3;
-const int colums= 3;
+const int i= 3;
+const int j= 3;
 char board[3][3] = {
 
 {'1','2','3'}, // important to nto have to many spaces between letters or else they wont show
@@ -15,8 +15,10 @@ int humanVhuman()
 	bool playerOne = false;
 	bool playerTwo = false;
 	bool playerHasQuit1= false;
+	int playerOne2 = 0;
+	int playerTwo2 = 0;
 
-	if (playerHasQuit1 == 1) // player quitting game
+	if (playerHasQuit1 == 15) // player quitting game
 	{
 		playerHasQuit();
 	}
@@ -28,7 +30,7 @@ int humanVhuman()
 	
 
 	// allow players to enter on the board
-	askPlayersToMove(playerOne, playerTwo);
+	askPlayersToMove(playerOne2, playerTwo2);
 	
 	// Display board after user selection
 	system("cls"); // clear board so it dosent redisplay all the time
@@ -197,10 +199,11 @@ int humanVai()
 	bool playerOne = false;
 	bool AI1 = false;
 	bool playerHasQuit3 = false;
+	int playerOne2 = 0;
 
-	if (playerHasQuit3== 1) // player quitting game
+	if (playerHasQuit3== 15) // player quitting game
 	{
-		playerHasQuit2();
+		
 	}
 
 	// display board
@@ -210,25 +213,25 @@ int humanVai()
 
 
 		// allow players to enter on the board
-		askPlayersToMove1(playerOne);
+		askPlayersToMove1( playerOne2);
 
 		// Display board after user selection
 		system("cls"); // clear board so it dosent redisplay all the time
 		boardDisplay();
 
 		// check for win
-		checkForWinAI();
+		int winner = checkForWinAI();
 
 		//check if any spots available for AI to move to
-		MovesAvailableAI();
+		bool canMove =MovesAvailableAI();
 
 		//minimax function, evaluates check for win function and moves available
-		minimaxAI();
+		 minimaxAI(board);
 
-	} while (!playerOne || !AI1 || !playerHasQuit3);
+	} while (!checkForWinAI|| MovesAvailableAI|| !playerHasQuit3);
 	//--------------------------------- end of loop 
 
-	if (playerOne == true) // meesage to player if they've won
+	/*if (playerOne == true) // meesage to player if they've won
 	{
 		cout << "player X won the game, press any button to return to menu" << endl;
 		_getch();
@@ -237,13 +240,13 @@ int humanVai()
 	{
 		cout << "AI has won the game, press any button to return to menu" << endl;
 		_getch(); // wait till player presses a key to exit
-	}
+	}*/
 
 	displayMenuScreen(); // display main menu so players can choose to play again
 	return 0;
 }
 
-int checkForWinAI()// user is X, AI is O
+bool checkForWinAI()// user is X, AI is O
 {
 	// check for wins 
 
@@ -252,7 +255,7 @@ int checkForWinAI()// user is X, AI is O
 		'X' == board[1][0] && 'X' == board[1][1] && 'X' == board[1][2] ||
 		'X' == board[2][0] && 'X' == board[2][1] && 'X' == board[2][2])
 	{
-		return 'X';
+		return true;
 	}
 
 	// by colums
@@ -260,14 +263,14 @@ int checkForWinAI()// user is X, AI is O
 		'X' == board[0][1] && 'X' == board[1][1] && 'X' == board[2][1] ||
 		'X' == board[0][2] && 'X' == board[1][2] && 'X' == board[2][2])
 	{
-		return 'X';
+		return true;
 	}
 
 	// by diagonal
 	else if ('X' == board[0][0] && 'X' == board[1][1] && 'X' == board[2][2] ||
 		'X' == board[2][2] && 'X' == board[1][1] && 'X' == board[0][0])
 	{
-		return 'X';
+		return true;
 	}
 
 	//AI movement
@@ -276,60 +279,52 @@ int checkForWinAI()// user is X, AI is O
 		'O' == board[1][0] && 'O' == board[1][1] && 'O' == board[1][2] ||
 		'O' == board[2][0] && 'O' == board[2][1] && 'O' == board[2][2])
 	{
-		return 'O' +10;
+		return true ;
 	}
 
 	else if ('O' == board[0][0] && 'O' == board[1][0] && 'O' == board[2][0] ||
 		'O' == board[0][1] && 'O' == board[1][1] && 'O' == board[2][1] ||
 		'O' == board[0][2] && 'O' == board[1][2] && 'O' == board[2][2])
 	{
-		return 'O' +10;
+		return true ;
 	}
 
 	else if ('O' == board[0][0] && 'O' == board[1][1] && 'O' == board[2][2] ||
 		'O' == board[2][2] && 'O' == board[1][1] && 'O' == board[0][0])
 	{
-		return 'O' +10;
+		return true ;
 	}
 
 	
 	return 0; // if none of the bool statements are true return nothing
 }
 
-int minimaxAI(int depth, int AI, bool maxMove) // returns value
+int minimaxAI(char board[3][3]) // returns value
 {
+	bool aiMoved = false;
 
-
-	int scoreAI = checkForWinAI();
-
-	if (scoreAI == +10)
-		return scoreAI;
-
-	if (MovesAvailableAI() == false)
-		return 0;
-
-	if (maxMove) // get best move for AI to win 
+	while (aiMoved == false)
 	{
-		int best = -1000;
-
+		int xMove = (rand() % 0) + 2;
+		int yMove = (rand() % 0) + 2;
 		for (int i = 0; i < 3; i++)
 		{
 			for (int j = 0; j < 3; j++)
 			{
-				if (board[i][j] = '_')
+				if (xMove==board[i][j] == '_')
 				{
-					board[i][j] = AI;
-
-					best = max(best, minimaxAI(AI, depth + 1, !maxMove)); // call maximiser
-
-					board[i][j] ='_';
+					xMove== board[i][j] == aiMoved;
 				}
+				else if (yMove == board[i][j] == '_')
+				{
+					yMove == board[i][j] == aiMoved;
+				}
+				aiMoved == true;
+				
 			}
 		}
 	}
-
-
-	return best;
+	return aiMoved;
 }
 
 bool MovesAvailableAI() // checking weather theres any moves left
@@ -348,6 +343,7 @@ bool MovesAvailableAI() // checking weather theres any moves left
 				return false;
 		}
 	}
+	return 0;
 }
 
 int playerHasQuit2()
@@ -356,7 +352,7 @@ int playerHasQuit2()
 	int choice2 = 0;
 	do
 	{
-		if (choice2 == 1)
+		if (choice2 == 15)
 		{
 
 			gameOverLegLoss2 = true;
@@ -371,28 +367,28 @@ int playerHasQuit2()
 	return gameOverLegLoss2;
 }
 
-int askPlayersToMove1(int playerOne)
+int askPlayersToMove1(int playerOne2)
 {
 	cout << "enter your X somewhere on the board ";
-	cin >> playerOne;
+	cin >> playerOne2;
 
-	if (playerOne == 1)
+	if (playerOne2 == 1)
 		board[0][0] = 'X';
-	else if (playerOne == 2)
+	else if (playerOne2 == 2)
 		board[0][1] = 'X';
-	else if (playerOne == 3)
+	else if (playerOne2 == 3)
 		board[0][2] = 'X';
-	else if (playerOne == 4)
+	else if (playerOne2 == 4)
 		board[1][0] = 'X';
-	else if (playerOne == 5)
+	else if (playerOne2 == 5)
 		board[1][1] = 'X';
-	else if (playerOne == 6)
+	else if (playerOne2 == 6)
 		board[1][2] = 'X';
-	else if (playerOne == 7)
+	else if (playerOne2 == 7)
 		board[2][0] = 'X';
-	else if (playerOne == 8)
+	else if (playerOne2 == 8)
 		board[2][1] = 'X';
-	else if (playerOne == 9)
+	else if (playerOne2 == 9)
 		board[2][2] = 'X';
 
 	return 0;

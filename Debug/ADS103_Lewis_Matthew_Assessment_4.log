@@ -1,6 +1,12 @@
 ﻿  FunctionProtos.cpp
-C:\Users\lewya\Desktop\University\Algo & Data Structures\ADS Assessment 4\ADS103_Lewis_Matthew_Assessment_4\FunctionProtos.cpp(324,18): warning C4553: '==': result of expression not used; did you intend '='?
-C:\Users\lewya\Desktop\University\Algo & Data Structures\ADS Assessment 4\ADS103_Lewis_Matthew_Assessment_4\FunctionProtos.cpp(328,18): warning C4553: '==': result of expression not used; did you intend '='?
-C:\Users\lewya\Desktop\University\Algo & Data Structures\ADS Assessment 4\ADS103_Lewis_Matthew_Assessment_4\FunctionProtos.cpp(335,9): error C2065: 'best': undeclared identifier
-  main.cpp
-  Generating Code...
+C:\Users\lewya\Desktop\Programing University\Algo & Data Structures\ADS Assessment 4\ADS103_Lewis_Matthew_Assessment_4\FunctionProtos.cpp(21,26): warning C4806: '==': unsafe operation: no value of type 'bool' promoted to type 'int' can equal the given constant
+C:\Users\lewya\Desktop\Programing University\Algo & Data Structures\ADS Assessment 4\ADS103_Lewis_Matthew_Assessment_4\FunctionProtos.cpp(204,25): warning C4806: '==': unsafe operation: no value of type 'bool' promoted to type 'int' can equal the given constant
+C:\Users\lewya\Desktop\Programing University\Algo & Data Structures\ADS Assessment 4\ADS103_Lewis_Matthew_Assessment_4\FunctionProtos.cpp(231,43): warning C4551: function call missing argument list
+C:\Users\lewya\Desktop\Programing University\Algo & Data Structures\ADS Assessment 4\ADS103_Lewis_Matthew_Assessment_4\FunctionProtos.cpp(314,34): warning C4806: '==': unsafe operation: no value of type 'bool' promoted to type 'char' can equal the given constant
+C:\Users\lewya\Desktop\Programing University\Algo & Data Structures\ADS Assessment 4\ADS103_Lewis_Matthew_Assessment_4\FunctionProtos.cpp(316,26): warning C4553: '==': result of expression not used; did you intend '='?
+C:\Users\lewya\Desktop\Programing University\Algo & Data Structures\ADS Assessment 4\ADS103_Lewis_Matthew_Assessment_4\FunctionProtos.cpp(318,41): warning C4806: '==': unsafe operation: no value of type 'bool' promoted to type 'char' can equal the given constant
+C:\Users\lewya\Desktop\Programing University\Algo & Data Structures\ADS Assessment 4\ADS103_Lewis_Matthew_Assessment_4\FunctionProtos.cpp(320,27): warning C4553: '==': result of expression not used; did you intend '='?
+C:\Users\lewya\Desktop\Programing University\Algo & Data Structures\ADS Assessment 4\ADS103_Lewis_Matthew_Assessment_4\FunctionProtos.cpp(322,13): warning C4553: '==': result of expression not used; did you intend '='?
+C:\Users\lewya\Desktop\Programing University\Algo & Data Structures\ADS Assessment 4\ADS103_Lewis_Matthew_Assessment_4\FunctionProtos.cpp(308): warning C4724: potential mod by 0
+C:\Users\lewya\Desktop\Programing University\Algo & Data Structures\ADS Assessment 4\ADS103_Lewis_Matthew_Assessment_4\FunctionProtos.cpp(309): warning C4724: potential mod by 0
+  ADS103_Lewis_Matthew_Assessment_4.vcxproj -> C:\Users\lewya\Desktop\Programing University\Algo & Data Structures\ADS Assessment 4\ADS103_Lewis_Matthew_Assessment_4\Debug\ADS103_Lewis_Matthew_Assessment_4.exe
